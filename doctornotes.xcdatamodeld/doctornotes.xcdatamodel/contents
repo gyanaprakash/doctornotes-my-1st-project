@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="PATIENT" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currentdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="diseases" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="drugs" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nextdate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="symptoms" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="VISITED" syncable="YES">
+        <attribute name="pid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vdate" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PATIENT" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="VISITED" positionX="-137" positionY="177" width="128" height="75"/>
+    </elements>
+</model>

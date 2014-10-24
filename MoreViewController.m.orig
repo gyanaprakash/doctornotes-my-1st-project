@@ -1,0 +1,142 @@
+//
+//  MoreViewController.m
+//  doctornotes
+//
+//  Created by Mac on 19/12/13.
+//  Copyright (c) 2013 nacreservices. All rights reserved.
+//
+
+#import "MoreViewController.h"
+#import <Social/Social.h>
+
+@interface MoreViewController ()
+
+@end
+
+@implementation MoreViewController
+@synthesize fbbutton,twitbutton,mailButton,mailView;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+     [self.navigationItem setTitle:@"Favorities"];
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
+    
+    UIImageView*backview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 460)];
+    [backview setImage:[UIImage imageNamed:@"background.png"]];
+    [self.view addSubview:backview];
+
+    
+    UILabel *heading =[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
+    [heading setBackgroundColor:[UIColor blueColor]];
+    [heading setTextAlignment:NSTextAlignmentRight];
+    [heading setTextColor:[UIColor whiteColor]];
+    [heading setFont:[UIFont fontWithName:@"Chalkboard" size:35]];
+    [heading setText:@"Found Somthing New..!"];
+    [self.view addSubview:heading];
+    
+    mailView=[[UITextView alloc]initWithFrame:CGRectMake(0, 35, 320, 120)];
+    
+    [mailView setBackgroundColor:[UIColor whiteColor]];
+    
+    [mailView setFont:[UIFont fontWithName:@"Chalkboard" size:60]];
+     [mailView setTextColor:[UIColor blueColor]];
+    [mailView setDelegate:self];
+     [mailView resignFirstResponder];
+    [mailView setScrollEnabled:YES];
+    [self.view addSubview:mailView];
+    
+    UILabel *heading2 =[[UILabel alloc]initWithFrame:CGRectMake(0, 100, 280, 35)];
+    [heading2 setTextAlignment:NSTextAlignmentLeft];
+    [heading2 setBackgroundColor:[UIColor lightGrayColor]];
+    [heading2 setTextColor:[UIColor whiteColor]];
+    [heading2 setFont:[UIFont fontWithName:@"Chalkboard" size:35]];
+    [heading2 setText:@"Share This On:"];
+    [self.view addSubview:heading2];
+    
+
+    
+    fbbutton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [fbbutton setFrame:CGRectMake(130, 180, 50, 50)];
+    [fbbutton setImage:[UIImage imageNamed:@"fb.png"] forState:UIControlStateNormal];
+    [fbbutton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [fbbutton setTag:1];
+    [self.view addSubview:fbbutton];
+    
+    twitbutton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [twitbutton setFrame:CGRectMake(190, 180, 50, 50)];
+    [twitbutton setImage:[UIImage imageNamed:@"tw.png"] forState:UIControlStateNormal];
+    [twitbutton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [twitbutton setTag:2];
+    [self.view addSubview:twitbutton];
+//
+    
+    mailButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [mailButton setFrame:CGRectMake(250, 180, 50, 50)];
+    [mailButton setImage:[UIImage imageNamed:@"mail.png"] forState:UIControlStateNormal];
+    [mailButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [mailButton setTag:3];
+    [self.view addSubview:mailButton];
+    
+
+    
+}
+////-(void)textViewDidEndEditing:(UITextView *)textView{
+////    [mailView resignFirstResponder];
+//}
+
+-(void)buttonClicked:(id)sender
+
+{
+    UIButton*Button=(UIButton*)sender;
+    
+    if (Button.tag==1)
+    {
+        
+    }
+    else if (Button.tag==2)
+    {
+        
+    }
+//    else
+//    {
+//              NSMutableString *notes=[NSMutableString stringWithFormat:@"%@%@",mailView.text];
+//        
+//        if ([SLComposeViewController canSendMail])
+//        {
+//            SLComposeViewController *mailcomViewController=[[SLComposeViewController alloc]init];
+//            [mailcomViewController.mailComposeDelegate=self] ;
+//            [mailcomViewController setSubject:@"mail"];
+//            [mailcomViewController setMessageBody:notes isHTML:NO];
+//            
+//            [self presentModalViewController:mailcomViewController animated:NO];
+//        }else
+//        {
+//            NSLog(@"soryy,, u hv to set up mail first");
+//        }
+//
+    
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
