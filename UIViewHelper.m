@@ -2,7 +2,7 @@
 //  UIViewHelper.m
 //  doctornotes
 //
-//  Created by nareshit on 12/19/13.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2013 nacreservices. All rights reserved.
 //
 
@@ -19,8 +19,8 @@
     return lbl ;    
 }
 
-+(UITextField*)createTextFeild:(NSString*)text placeholder:(NSString*)placeHolder withEditing:(BOOL)flag{
-    
++(UITextField*)createTextFeild:(NSString*)text placeholder:(NSString*)placeHolder withEditing:(BOOL)flag
+{
     UITextField *tf = [[[UITextField alloc] init]autorelease];
     [tf setEnabled:flag];
     [tf setPlaceholder:placeHolder];
@@ -51,8 +51,6 @@
         return tf ;
             
 }
-
-
 
 
 @end

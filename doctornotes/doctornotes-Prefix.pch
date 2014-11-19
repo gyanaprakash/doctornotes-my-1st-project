@@ -12,5 +12,16 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import<CoreData/CoreData.h>
+    #import "AddPatientViewController.h"
+    #import "PatientDetailViewController.h"
+    #import "AppointmentViewController.h"
+    #import "AboutUsViewController.h"
+    #import "AppDelegate.h"
+    #import "UIViewHelper.h"
+    #import "AppointmentUpdate.h"
+    #import "NewPatientRecord.h"
+    #import <QuartzCore/QuartzCore.h>
+    #import "ValidationHelper.h"
+#import "HealthTipsViewController.h"
 
 #endif

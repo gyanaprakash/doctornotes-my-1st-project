@@ -2,7 +2,7 @@
 //  PatientDetailViewController.h
 //  doctornotes
 //
-//  Created by Mac on 19/12/13.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2013 nacreservices. All rights reserved.
 //
 
@@ -10,24 +10,25 @@
 
 @interface PatientDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 {
-    UITableView *patientTable;
     UISearchBar*searchBar;
     NSMutableArray *recordeArray;
     NSMutableArray *filterdAray;
+    
     BOOL letUserSelectRow;
     BOOL isSearching;
     BOOL editing;
 }
-@property(nonatomic,retain)  UITableView *patientTable;
+@property (retain, nonatomic) IBOutlet UITableView *patientDetai;
 
-@property(nonatomic, retain) UISearchBar*searchBar;
+@property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property(nonatomic, retain) NSMutableArray *recordeArray;
 @property(nonatomic, retain) NSMutableArray *filterdAray;
 
 -(void)searchtableView;
+@property (retain, nonatomic) IBOutlet UIButton *edit;
 
--(void)onCancelTouched:(id)sender;
-
+- (IBAction)Backbuttonclciked:(UIButton *)sender;
+- (IBAction)edit:(UIButton *)sender;
 
 @end

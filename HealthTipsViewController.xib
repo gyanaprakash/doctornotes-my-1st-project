@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HealthTipsViewController">
+            <connections>
+                <outlet property="action" destination="N4a-t9-Fo1" id="gz8-3F-Q64"/>
+                <outlet property="bloodpresure" destination="LR1-og-pkL" id="IHQ-qm-UAk"/>
+                <outlet property="brain" destination="kaD-Pc-ccc" id="OMP-Qw-ET4"/>
+                <outlet property="dental" destination="Q7U-tH-QDU" id="s5r-Se-zWc"/>
+                <outlet property="diabits" destination="JcZ-Yw-15M" id="2Bp-hO-sq0"/>
+                <outlet property="feaber" destination="GyK-cN-gW9" id="uEV-Et-L8i"/>
+                <outlet property="heart" destination="fb3-vl-gkW" id="nBv-GO-Tyc"/>
+                <outlet property="stomacview" destination="TRy-oi-XyF" id="NMN-Qn-FtO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="2cn-6h-14H">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="lIv-F6-kp5">
+                    <rect key="frame" x="0.0" y="0.0" width="338" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fkb-kp-Sj2">
+                    <rect key="frame" x="14" y="7" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonAction:" destination="-1" eventType="touchUpInside" id="vXN-dJ-JAN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N4a-t9-Fo1">
+                    <rect key="frame" x="73" y="90" width="174" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.92259954639999997" green="0.76609753020000004" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                    <state key="normal" title="Realated to stomac">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonAction:" destination="-1" eventType="touchUpInside" id="9iN-pg-m6t"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nda-oU-hzU">
+                    <rect key="frame" x="73" y="173" width="174" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.92259954639999997" green="0.76609753020000004" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                    <state key="normal" title="Realated to feaber">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonAction:" destination="-1" eventType="touchUpInside" id="vAa-2l-SMs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FTW-xX-6hu">
+                    <rect key="frame" x="73" y="217" width="174" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.92259954639999997" green="0.76609753020000004" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                    <state key="normal" title="Realated to diabits">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonAction:" destination="-1" eventType="touchUpInside" id="Seh-be-6wp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DLH-zu-iOy">
+                    <rect key="frame" x="73" y="262" width="174" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.92259954639999997" green="0.76609753020000004" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                    <state key="normal" title="Realated to heart">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonAction:" destination="-1" eventType="touchUpInside" id="MIw-5P-Zca"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rHd-Dp-yvK">
+                    <rect key="frame" x="73" y="306" width="174" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.92259954639999997" green="0.76609753020000004" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                    <state key="normal" title="Realated to brain">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonAction:" destination="-1" eventType="touchUpInside" id="6cS-RA-wEA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="U3r-TL-afz">
+                    <rect key="frame" x="73" y="352" width="174" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.92259954639999997" green="0.76609753020000004" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                    <state key="normal" title="Realated to dental">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonAction:" destination="-1" eventType="touchUpInside" id="wIy-Eu-Jpg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t4x-7D-88d">
+                    <rect key="frame" x="73" y="132" width="174" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.92259954639999997" green="0.76609753020000004" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                    <state key="normal" title="Realated to bloodpresure">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonAction:" destination="-1" eventType="touchUpInside" id="Ocr-W3-eUo"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="392" y="114"/>
+        </view>
+        <view contentMode="scaleToFill" id="TRy-oi-XyF">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="hUn-cl-OoH">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="a2c-rL-uze">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7ub-Dk-8Vn">
+                    <rect key="frame" x="14" y="8" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backbutton:" destination="-1" eventType="touchUpInside" id="Bro-Ig-seA"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipss for stomac" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ueg-YK-hFx">
+                    <rect key="frame" x="96" y="12" width="128" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="E94-5S-hLB">
+                    <rect key="frame" x="0.0" y="44" width="320" height="483"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Deep Belly Fat
+
+You need some visceral fat. It provides cushioning around your organs.
+
+But if you have too much of it, you may be more likely to get high blood pressure, type 2 diabetes, heart disease, dementia, and certain cancers, including breast cancer and colon cancer.
+
+The fat doesn't just sit there. It's an active part of your body, making "lots of nasty substances," says Kristen Hairston, MD, assistant professor of endocrinology and metabolism at Wake Forest School of Medicine.
+
+If you gain too much weight, your body starts to store your fat in unusual places.
+
+With increasing obesity, you have people whose regular areas to store fat are so full that the fat is deposited into the organs and around the heart, says Carol Shively, PhD, professor of pathology-comparative medicine at Wake Forest School of Medicine.
+
+How Much Belly Fat Do You Have?
+
+The most precise way to determine how much visceral fat you have is to get a CT scan or MRI. But there's a much simpler, low-cost way to check.                                                                   4 Steps for Beating Belly Fat continued...
+
+1. Exercise: Vigorous exercise trims all your fat, including visceral fat.
+
+Get at least 30 minutes of moderate exercise at least 5 days a week. Walking counts, as long as it's brisk enough that you work up a sweat and breathe harder, with your heart rate faster than usual.  
+
+To get the same results in half the time, step up your pace and get vigorous exercise -- like jogging or walking. You'd need to do that for 20 minutes a day, 4 days a week.
+
+Jog, if you're already fit, or walk briskly at an incline on a treadmill if you're not ready for jogging. Vigorous workouts on stationary bikes and elliptical or rowing machines are also effective, says Duke researcher Cris Slentz, PhD.
+
+Moderate activity -- raising your heart rate for 30 minutes at least three times per week -- also helps. It slows down how much visceral fat you gain. But to torch visceral fat, your workouts may need to be stepped up.
+
+
+“Rake leaves, walk, garden, go to Zumba, play soccer with your kids. It doesn’t have to be in the gym,” Hairston says.
+
+If you are not active now, it's a good idea to check with your health care provider before starting a new fitness program.
+
+2. Diet: There is no magic diet for belly fat. But when you lose weight on any diet, belly fat usually goes first.
+
+Getting enough fiber can help. Hairston’s research shows that people who eat 10 grams of soluble fiber per day -- without any other diet changes -- build up less visceral fat over time than others. That’s as simple as eating two small apples, a cup of green peas, or a half-cup of pinto beans.
+
+“Even if you kept everything else the same but switched to a higher-fiber bread, you might be able to better maintain your weight over time,” Hairston says.
+
+3. Sleep: Getting the right amount of shut-eye helps. In one study, people who got 6 to 7 hours of sleep per night gained less visceral fat over 5 years compared to those who slept 5 or fewer hours per night or 8 or more hours per night. Sleep may not have been the only thing that mattered -- but it was part of the picture.
+
+4. Stress: Everyone has stress. How you handle it matters. The best things you can do include relaxing with friends and family, meditating, exercising to blow off steam, and getting counseling. That leaves you healthier and better prepared to make good choices for yourself.
+
+“If you could only afford the time to do one of these things," Shively says, "exercise probably has the most immediate benefits, because it gets at both obesity and stress.”
+
+Get a measuring tape, wrap it around your waist at your belly button, and check your girth. Do it while you're standing up, and make sure the tape measure is level.
+
+For your health's sake, you want your waist size to be less than 35 inches if you're a woman and less than 40 inches if you're a man.
+
+Having a "pear shape" -- bigger hips and thighs -- is considered safer than an "apple shape," which describes a wider waistline.
+
+“What we’re really pointing to with the apple versus pear,” Hairston says, "is that, if you have more abdominal fat, it’s probably an indicator that you have more visceral fat."
+
+Thin People Have It, Too
+
+Even if you're thin, you can still have too much visceral fat.
+
+How much you have is partly about your genes, and partly about your lifestyle, especially how active you are.  
+
+Visceral fat likes inactivity. In one study, thin people who watched their diets but didn't exercise were  more likely to have too much visceral fat.
+
+The key is to be active, no matter what size you are.
+
+4 Steps for Beating Belly Fat
+
+There are four keys to controlling belly fat: exercise, diet, sleep, and stress management.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="0hZ-A2-i3f">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.wemakeappz.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZSC-HY-tDr">
+                    <rect key="frame" x="69" y="535" width="183" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="-182" y="94"/>
+        </view>
+        <view contentMode="scaleToFill" id="LR1-og-pkL">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="Geh-Sm-D21">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="3Qy-4q-diL">
+                    <rect key="frame" x="0.0" y="44" width="320" height="526"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">How Can I Prevent High Blood Pressure?
+You can prevent high blood pressure by:
+
+Maintaining a healthy weight. Being overweight can make you two to six times more likely to develop high blood pressure than if you are at your desirable weight. Even small amounts of weight loss can make a big difference in helping to prevent and treat high blood pressure.
+Getting regular exercise: People who are physically active have a lower risk of getting high blood pressure -- 20% to 50% lower -- than people who are not active. You don't have to be a marathon runner to benefit from physical activity. Even light activities, if done daily, can help lower your risk.
+Reducing salt intake: Often, when people with high blood pressure cut back on salt, their blood pressure falls. Cutting back on salt also prevents blood pressure from rising.
+Drinking alcohol in moderation, if at all: Drinking too much alcohol can raise your blood pressure. To help prevent high blood pressure, limit how much alcohol you drink to no more than two drinks a day. The "Dietary Guidelines for Americans" recommends that for overall health, women should limit their alcohol to no more than one drink a day.
+Reduce stress: Stress can make blood pressure go up, and over time may contribute to the cause of high blood pressure. There are many steps you can take to reduce your stress. The article on easing stress will get you started.
+
+Other nutrients may also help prevent high blood pressure. Here's a roundup of the research:
+
+Potassium. Eating foods rich in potassium will help protect some people from developing high blood pressure. You probably can get enough potassium from your diet, so a supplement isn't necessary (and could be dangerous without a doctor's oversight). Many fruits, vegetables, dairy foods, and fish are good sources of potassium.
+Calcium. Populations with low calcium intakes have high rates of high blood pressure. However, it has not been proven that taking calcium tablets will prevent high blood pressure. But it is important to be sure to get at least the recommended amount of calcium -- 1,000 milligrams per day for adults 19 to 50 years old and 1,200 mg for those over 50 (pregnant and breastfeeding women also need more) -- from the foods you eat. Dairy foods like low-fat milk, yogurt, and cheese are good sources of calcium. Low-fat and nonfat dairy products have even more calcium than the high-fat types.
+Magnesium. A diet low in magnesium may make your blood pressure rise. But doctors don't recommend taking extra magnesium to help prevent high blood pressure -- the amount you get in a healthy diet is enough. Magnesium is found in whole grains, green leafy vegetables, nuts, seeds, and dry peas and beans.
+Fish oils. A type of fat called "omega-3 fatty acids" is found in fatty fish like mackerel and salmon. Large amounts of fish oils may help reduce high blood pressure, but their role in prevention is unclear. Taking fish oil pills is not recommended, because high doses can cause unpleasant side effects. Most fish, if not fried or made with added fat, is low in saturated fat and calories and can be eaten often.
+Garlic. There has been some evidence to suggest garlic’s effect in lowering blood pressure, in addition to improving cholesterol and reducing some cancers. Further research is being conducted to fully assess garlic’s potential health benefits.How Can I Prevent High Blood Pressure? continued...
+Always talk to your doctor before taking a dietary supplement or alternative herbal treatment. Some may interact with other medications you may be taking or have harmful side effects.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="Up8-uo-daR">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipss for Blood Presure" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8AZ-8t-VL5">
+                    <rect key="frame" x="70" y="15" width="180" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bu4-NT-G7I">
+                    <rect key="frame" x="14" y="6" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backbutton:" destination="-1" eventType="touchUpInside" id="Akw-4J-6T2"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="21Z-Qv-gjn">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.wemakeappz.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aOj-Od-gLB">
+                    <rect key="frame" x="69" y="534" width="183" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="-77" y="94"/>
+        </view>
+        <view contentMode="scaleToFill" id="JcZ-Yw-15M">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="VpQ-tR-zNl">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="RV8-Js-Y8K">
+                    <rect key="frame" x="0.0" y="44" width="320" height="1470"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Diabetes prevention is as basic as eating more healthfully, becoming more physically active and losing a few extra pounds — and it's never too late to start. Making a few simple changes in your lifestyle now may help you avoid the serious health complications of diabetes down the road, such as nerve, kidney and heart damage. Consider the latest diabetes prevention tips from the American Diabetes Association.
+
+Tip 1: Get more physical activity
+
+There are many benefits to regular physical activity. Exercise can help you:
+
+Lose weight
+Lower your blood sugar
+Boost your sensitivity to insulin — which helps keep your blood sugar within a normal range
+Research shows that both aerobic exercise and resistance training can help control diabetes, but the greater benefit comes from a fitness program that includes both.
+
+Tip 2: Get plenty of fiber
+
+It's rough, it's tough — and it may help you:
+
+Reduce your risk of diabetes by improving your blood sugar control
+Lower your risk of heart disease
+Promote weight loss by helping you feel full
+Foods high in fiber include fruits, vegetables, beans, whole grains, nuts and seeds.
+
+Tip 3: Go for whole grains
+
+Although it's not clear why, whole grains may reduce your risk of diabetes and help maintain blood sugar levels. Try to make at least half your grains whole grains. Many foods made from whole grains come ready to eat, including various breads, pasta products and many cereals. Look for the word "whole" on the package and among the first few items in the ingredient list.Tip 4: Lose extra weight
+
+If you're overweight, diabetes prevention may hinge on weight loss. Every pound you lose can improve your health, and you may be surprised by how much. Participants in one large study who lost a modest amount of weight — around 7 percent of initial body weight — and exercised regularly reduced the risk of developing diabetes by almost 60 percent.
+
+Tip 5: Skip fad diets and just make healthier choices
+
+Low-carb diets, the glycemic index diet or other fad diets may help you lose weight at first, but their effectiveness at preventing diabetes isn't known nor are their long-term effects. And by excluding or strictly limiting a particular food group, you may be giving up essential nutrients. Instead, think variety and portion control as part of an overall healthy-eating plan.
+
+When to see your doctor
+
+If you're older than age 45 and your weight is normal, ask your doctor if diabetes testing is appropriate for you. The American Diabetes Association recommends blood glucose screening if:
+
+You're age 45 or older and overweight
+You're younger than age 45 and overweight with one or more additional risk factors for type 2 diabetes — such as a sedentary lifestyle or a family history of diabetes
+Share your concerns about diabetes prevention with your doctor. He or she will applaud your efforts to keep diabetes at bay, and perhaps offer additional suggestions based on your medical history or other factors.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="xtK-iN-UVv">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="mZB-2S-fgB">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips for diabits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rg5-v9-ngL">
+                    <rect key="frame" x="103" y="8" width="114" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3OJ-Cf-S5t">
+                    <rect key="frame" x="14" y="7" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backbutton:" destination="-1" eventType="touchUpInside" id="1qw-6G-xjk"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.wemakeappz.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JZm-r8-b0f">
+                    <rect key="frame" x="69" y="535" width="183" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="-102" y="145"/>
+        </view>
+        <view contentMode="scaleToFill" id="GyK-cN-gW9">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="jcW-hz-guu">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="Qgg-cg-Pd1">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="fPO-aa-22X">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CLy-1G-Fbg">
+                            <rect key="frame" x="8" y="6" width="35" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Back">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="backbutton:" destination="-1" eventType="touchUpInside" id="0hs-25-fju"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.wemakeappz.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iEX-WU-hxp">
+                            <rect key="frame" x="69" y="534" width="183" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips for feaber" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="73B-Gt-LC1">
+                            <rect key="frame" x="104" y="12" width="112" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="MmK-bc-P0e">
+                            <rect key="frame" x="0.0" y="44" width="320" height="482"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <string key="text">Before you start, keep a few things in mind: When you increase fiber, you should increase your water intake along with it. Add fiber gradually to give your gastrointestinal tract time to adapt. And if you have gastrointestinal diseases, including constipation, check with your doctor first.
+
+1. Go for whole grains whenever possible.
+
+Check the ingredient list to make sure the whole grain is the first or second ingredient on the list. Products that say "100% wheat" or "multigrain" are not usually whole grain.
+
+
+2 slices of whole-wheat bread = 4 grams of fiber
+1 cup of cooked brown rice = 4 grams of fiber
+Reduced-Fat Triscuit crackers = 3 grams
+ 
+
+2. Choose the right breakfast cereals.
+
+Some cereals have little whole grain. And some whole grain cereals are loaded with unnecessary sugar.
+
+½ cup Fiber One = 14 grams of fiber
+1 cup Raisin Bran = 7.5 grams of fiber
+1 cup Frosted Shredded Wheat Spoon Size = 5 grams
+1 cup Quaker Squares Baked in Cinnamon = 5 grams
+¾ cup cooked oatmeal = 3 grams
+*Recommended serving sizes.
+ 
+
+3. Eat beans a few times a week.
+
+Beans offer more fiber than most plant foods, plus they're loaded with healthy plant protein.
+
+1 cup of canned minestrone soup = about 5 grams fiber
+1/2 cup vegetarian or fat-free refried beans, used to make microwave nachos = about 6 grams
+1/4 cup kidney beans, added to a green salad = 3 grams fiber
+Bean burrito at Taco Bell (or made at home) = 8 grams
+ 
+
+4. Have several servings of fruit every day.
+
+You can add it to your morning meal, enjoy it as a snack, and garnish your dinner plate with it. Or have it with — or instead of — dessert.
+
+1 large apple = 4 grams of fiber
+1 banana = 3 grams
+1 pear = 4 grams
+1 cup strawberries = 4 grams
+ 
+
+5. Every day, stir a tablespoon of ground flaxseed into your smoothie, soup, casserole, etc.
+
+One tablespoon will boost your daily fiber by 3 grams. Flaxseed contains a balance of soluble and insoluble fiber, too.
+
+6. Have several servings of vegetables every day.
+
+Include a vegetable with lunch, have raw veggies as an afternoon snack or pre-dinner appetizer, and enjoy a big helping with dinner. Make a point of enjoying vegetarian entrees several times a week.
+
+1 cup carrot slices, cooked = 5 grams of fiber
+1 cup cooked broccoli = 4.5 grams
+1 cup raw carrots = 4 grams
+1 sweet potato = 4 grams
+1 cup cauliflower, cooked = 3 grams
+2 cups raw spinach leaves = 3 grams</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="ggB-0T-O9S">
+                            <rect key="frame" x="-7" y="452" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="-21" y="4"/>
+        </view>
+        <view contentMode="scaleToFill" id="fb3-vl-gkW">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="2Lv-Yt-0Px">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="MX9-vM-1hG">
+                    <rect key="frame" x="0.0" y="44" width="320" height="3557"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Do You Eat What's Best for a Healthy Heart?
+Chocolate is bad for your heart. No, it's good. Wine is unhealthy. No, it's healthy. Pack your plate with protein and cut back on bread to lose weight. No...
+
+With all the mixed messages about "good" and "bad" foods in the media, it's not surprising that many people just give up trying to figure out what they should eat. If you're confused, you're not alone.
+
+"Our research has shown that the No. 1 thing people are confused about when it comes to heart health is what the best diet is," says preventive cardiologist Lori Mosca, MD, founder of Columbia University Medical Center's Preventive Cardiology Program and author of Heart to Heart: A Personal Plan for Creating a Heart-Healthy Family. "Every week there's a conflicting research study or a new book that refutes last year's book."
+
+
+Forget the competing headlines -- the best way to eat heart healthy is to follow national guidelines from organizations like the American Heart Association. "These are established by experts who monitor research, and are not focused on the latest fads and trends. It's actually much simpler than people realize," Mosca says.
+
+5 Simple Steps to a Heart Healthy Diet
+Ready to step up to a diet rich in the healthy nutrients your heart craves? The experts recommend staring here:
+
+Eat a diet rich in vegetables, fruits, whole grains, and fiber.
+Eat fish at least twice a week.
+Limit how much saturated fat, trans fat, and cholesterol you eat. Only 30% of your daily calories should come from fat, with very little of that from saturated fats.
+Select fat-free, 1% fat, and low-fat dairy products.
+Cut back on foods containing partially hydrogenated vegetable oils to reduce trans fat in your diet.
+Limit your salt intake.
+One way to make sure that your diet is rich in fruits, vegetables, and fiber, and low in saturated fats, is to divide your plate at each meal: half vegetables, 1/4 high-quality protein (like legumes -- terrific sources of protein and great for a healthy heart!), and 1/4 for fish or a very lean meat.
+
+And remember, you should get your nutrients from foods themselves, the antioxidants and other heart-healthy goodies found in foods like blueberries, beans, and artichokes don't pack the same punch when they're not in food form.
+
+And avoid fad diets, advises Mosca. "Almost every one may result in short-term weight loss but leave you weighing even more a year later, and preventing weight gain is one of the best ways to prevent developing heart disease risk factors."Is Your Exercise Routine Really Helping You Have a Healthy Heart?
+It's easy to get discouraged about exercise: It's hard to fit into a busy lifestyle. The people at the gym look like they spend hours there. You haven't run a mile since college. But no excuses -- like eating right, getting the exercise your heart needs is easier than it looks.
+
+If you're not overweight, all you need to maintain a heart healthy lifestyle is 30 minutes of moderate physical activity five or more times a week. And you don't have to do it all at once -- 15 minutes in the morning and 15 minutes in the evening are just fine.
+
+"Getting that amount of exercise has substantial benefits for your heart," says Mosca. Just how much is hard to quantify, but research shows that being physically inactive is a major risk factor for developing coronary artery disease.
+
+And exercise is the gift that keeps on giving. That's because regular, moderate exercise also helps:
+
+Control blood pressure
+Prevent diabetes
+Maintain healthy cholesterol levels
+
+If you need to lose weight, it's going to take a little more effort. "For weight management, we want low to moderate intensity activities for 60 minutes per day," says Mosca. "The only way to really lose weight is to decrease calories in and increase calories out, and what works best is a modest approach to both. If you just reduce your caloric intake, for example, your body slows its metabolism to compensate."
+
+Exactly what kind of exercise you do is less important than simply doing it in the first place. One way to make sure you don't skip it: Structure family time around physical activity.
+
+For example, Mosca, her husband, and son have found a track team they can all participate in, and they often hang out at their local swim club. Your local YMCA is often a great place to start in finding opportunities for your family to get heart-healthy exercise together.
+
+Do You Know Your Other Heart Health Risk Factors?
+A heart-healthy lifestyle is about more than just diet and exercise. The single most dangerous thing you can do to your heart is to smoke. Just by itself, cigarette smoking increases your risk of heart disease, but it also worsens other factors that contribute to heart disease:
+
+It increases blood pressure
+It increases the tendency of blood to clot
+It decreases levels of HDL -- the good cholesterol
+If you smoke a pack a day, you have more than twice the risk of a heart attack than someone who doesn't smoke.
+
+"Every cigarette you cut back matters," says Mosca. "The goal is always complete cessation, but even eliminating one cigarette a day can make a difference. Start there, and then try to keep going until you've quit altogether."Do You Know Your Other Heart Health Risk Factors? continued...
+A big plus: It doesn't take long for your body -- and your heart in particular -- to reap the health benefits of quitting. Twenty minutes after your last cigarette, your heart rate and blood pressure drop. Two weeks to three months later, your circulation and lung function improve. Just one year after quitting, your excess risk of coronary heart disease is just half that of a smoker's.
+
+You may have other risk factors for heart disease that are not on your radar. Mosca calls anxiety, anger, depression, and social isolation "silent epidemics" that are very prevalent, commonly missed, and potentially dangerous for your heart.
+
+"Depression, for example, is very common, and it's very strongly linked to heart disease," she says. "If you or someone you love is depressed or harboring a lot of anger, or seems isolated, encourage them to seek help. There are many methods to help you deal with these risk factors."
+
+A Healthy Heart: What's Up Your Family Tree?
+There are some risk factors for heart disease that you can't control, and family history is one of them. If a close relative, like a mother, father, sister, or brother had a heart attack or died of heart disease -- especially at a young age -- then the health of your heart may be at greater risk as well.
+
+
+"Families can share a predisposition to heart disease both because they have shared genes and a shared lifestyle," says Mosca. You get half your genes from mom and half your genes from dad -- but you probably also get your eating and exercise habits from them, too.
+
+"If you have a family history of heart disease, it's important that you have yourself checked out," says Mosca.
+
+You may find, for example, that you have high cholesterol and it needs to be managed with medication. On the flip side, you may be greatly reassured to find out that Dad's heart attack probably had to do with smoking and being overweight, and you don't share those risk factors. Either way, you can do something about your risk: genetics is not destiny.
+
+The most important thing to understand about a healthy heart is that many of the factors that put you at risk for disease lie within your power to control.
+
+"Even if you're not at high risk now, your most important goal should be to prevent yourself from developing increased risk," says Mosca. "You can do that through a heart-healthy lifestyle."</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="hgp-fp-kGe">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="BcH-re-3Wr">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="583-Xx-peg">
+                    <rect key="frame" x="14" y="6" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backbutton:" destination="-1" eventType="touchUpInside" id="kiz-Jg-LRg"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Realated to heart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JD6-hH-pH9">
+                    <rect key="frame" x="94" y="10" width="132" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.wemakeappz.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j6Q-VB-TYq">
+                    <rect key="frame" x="69" y="534" width="183" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="-226" y="114"/>
+        </view>
+        <view contentMode="scaleToFill" id="Q7U-tH-QDU">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="YeY-5K-Spx">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="PXL-la-v7E">
+                    <rect key="frame" x="0.0" y="44" width="320" height="526"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Here are some tips to help you look after your teeth.
+
+Brush at least twice a day. The best time to brush teeth is after meals. Choose a toothbrush with a small head for better access to back teeth. Soft bristles are kinder on your gums.
+
+Use fluoridated toothpaste. Fluoride helps to harden tooth enamel and reduces your risk of decay.
+
+Brush thoroughly. Tooth brushing should take between two and three minutes.
+
+Floss your teeth daily. Use a slow and gentle sawing motion.
+
+Limit acidic drinks like soft drinks, cordials and fruit juices. Food acids soften tooth material and dissolve the minerals in tooth enamel, causing holes (cavities or caries). In severe cases, teeth may be ‘eaten’ right down to the gum.
+
+Limit sugary foods. Bacteria in dental plaque change sugars into acids.
+
+Protect your teeth from injury. Wear a mouthguard or full-face helmet when playing sports.
+
+Try to save a knocked out tooth. If possible, hold the tooth back in place while you seek immediate dental advice. If this is not possible, wrap the tooth in plastic or place it in milk and seek dental advice immediately.
+
+Avoid using your teeth for anything other than chewing food. If you use them to crack nuts, remove bottle tops or rip open packaging, you risk chipping or even breaking your teeth.
+
+See your dentist for regular check-ups. You should also visit your dentist if you have a dental problem such as a toothache or bleeding gums.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="trQ-lN-qwa">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4kz-DN-7Z9">
+                    <rect key="frame" x="14" y="7" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backbutton:" destination="-1" eventType="touchUpInside" id="IpZ-n3-Vg8"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Realated to dental" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7YL-6U-H6N">
+                    <rect key="frame" x="90" y="11" width="141" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="76r-ce-Yt9">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.wemakeappz.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Pb-eQ-5Os">
+                    <rect key="frame" x="69" y="529" width="183" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="819" y="182"/>
+        </view>
+        <view contentMode="scaleToFill" id="kaD-Pc-ccc">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="y56-ve-zJh">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="LlW-UJ-wOq">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Realated to brain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VVn-QD-S7i">
+                    <rect key="frame" x="94" y="11" width="132" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GdE-V4-De0">
+                    <rect key="frame" x="8" y="7" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backbutton:" destination="-1" eventType="touchUpInside" id="CbV-K4-fHn"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="5Ov-Sv-LLL">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.wemakeappz.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YN1-wH-pcy">
+                    <rect key="frame" x="69" y="534" width="183" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="T3r-Wo-bDP">
+                    <rect key="frame" x="0.0" y="40" width="320" height="481"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Harnessing the power of your brain
+
+They say that you can’t teach an old dog new tricks, but when it comes to the brain, scientists have discovered that this old adage simply isn’t true. The human brain has an astonishing ability to adapt and change—even into old age. This ability is known as neuroplasticity. With the right stimulation, your brain can form new neural pathways, alter existing connections, and adapt and react in ever-changing ways.
+
+The brain’s incredible ability to reshape itself holds true when it comes to learning and memory. You can harness the natural power of neuroplasticity to increase your cognitive abilities, enhance your ability to learn new information, and improve your memory.
+
+Improving memory tip 1: Don't skimp on exercise or sleep
+
+Just as an athlete relies on sleep and a nutrition-packed diet to perform his or her best, your ability to remember increases when you nurture your brain with a good diet and other healthy habits.
+
+When you exercise the body, you exercise the brain
+
+Treating your body well can enhance your ability to process and recall information. Physical exercise increases oxygen to your brain and reduces the risk for disorders that lead to memory loss, such as diabetes and cardiovascular disease. Exercise may also enhance the effects of helpful brain chemicals and protect brain cells.
+
+Improve your memory by sleeping on it
+
+When you’re sleep deprived, your brain can’t operate at full capacity. Creativity, problem-solving abilities, and critical thinking skills are compromised. Whether you’re studying, working, or trying to juggle life’s many demands, sleep deprivation is a recipe for disaster.
+
+But sleep is critical to learning and memory in an even more fundamental way. Research shows that sleep is necessary for memory consolidation, with the key memory-enhancing activity occurring during the deepest stages of sleep.     Improving memory tip 2: Make time for friends and fun
+
+When you think of ways to improve memory, do you think of “serious” activities such as wrestling with the New York Times crossword puzzle or mastering chess strategy, or do more lighthearted pastimes—hanging out with friends or enjoying a funny movie—come to mind? If you’re like most of us, it’s probably the former. But countless studies show that a life that’s full of friends and fun comes with cognitive benefits.
+
+Healthy relationships: the ultimate memory booster?
+
+Humans are highly social animals. We’re not meant to survive, let alone thrive, in isolation. Relationships stimulate our brains—in fact, interacting with others may be the best kind of brain exercise.
+
+Research shows that having meaningful relationships and a strong support system are vital not only to emotional health, but also to brain health. In one recent study from the Harvard School of Public Health, for example, researchers found that people with the most active social lives had the slowest rate of memory decline.
+
+There are many ways to start taking advantage of the brain and memory-boosting benefits of socializing. Volunteer, join a club, make it a point to see friends more often, or reach out over the phone. And if a human isn’t handy, don’t overlook the value of a pet—especially the highly-social dog.
+
+Laughter is good for your brain
+
+You’ve heard that laughter is the best medicine, and that holds true for the brain and the memory as well as the body. Unlike emotional responses, which are limited to specific areas of the brain, laughter engages multiple regions across the whole brain.
+
+Furthermore, listening to jokes and working out punch lines activates areas of the brain vital to learning and creativity. As psychologist Daniel Goleman notes in his book Emotional Intelligence, “laughter…seems to help people think more broadly and associate more freely.”
+
+Looking for ways to bring more laughter in your life? Start with these basics:
+
+Laugh at yourself. Share your embarrassing moments. The best way to take ourselves less seriously is to talk about the times when we took ourselves too seriously.
+When you hear laughter, move toward it. Most of the time, people are very happy to share something funny because it gives them an opportunity to laugh again and feed off the humor you find in it. When you hear laughter, seek it out and ask, “What’s funny?”
+Spend time with fun, playful people. These are people who laugh easily—both at themselves and at life’s absurdities—and who routinely find the humor in everyday events. Their playful point of view and laughter are contagious.
+Surround yourself with reminders to lighten up. Keep a toy on your desk or in your car. Put up a funny poster in your office. Choose a computer screensaver that makes you laugh. Frame photos of you and your family or friends having fun.
+Pay attention to children and emulate them. They are the experts on playing, taking life lightly, and laughing.
+Improving memory tip 3: Keep stress in check
+
+Stress is one of the brain’s worst enemies. Over time, if left unchecked, chronic stress destroys brain cells and damages the hippocampus, the region of the brain involved in the formation of new memories and the retrieval of old ones.
+
+The stress-busting, memory-boosting benefits of meditation
+
+The scientific evidence for the mental health benefits of meditation continues to pile up. Studies show that meditation helps improve many different types of conditions, including depression, anxiety, chronic pain, diabetes, and high blood pressure. Meditation also can improve focus, concentration, creativity, memory, and learning and reasoning skills.
+
+Meditation works its “magic” by changing the actual brain. Brain images show that regular meditators have more activity in the left prefrontal cortex, an area of the brain associated with feelings of joy and equanimity. Meditation also increases the thickness of the cerebral cortex and encourages more connections between brain cells—all of which increases mental sharpness and memory ability.
+
+Depression and anxiety can also affect memory
+In addition to stress, depression, anxiety, and chronic worrying can also take a heavy toll on the brain. In fact, some of the symptoms of depression and anxiety include difficulty concentrating, making decisions, and remembering things. If you are mentally sluggish because of depression or anxiety, dealing with the problem will make a big difference in your cognitive abilities, including memory.
+
+Improving memory tip 4: Eat a brain-boosting diet
+
+Just as the body needs fuel, so does the brain. You probably already know that a diet based on fruits, vegetables, whole grains, “healthy” fats (such as olive oil, nuts, fish) and lean protein will provide lots of health benefits, but such a diet can also improve memory. But for brain health, it’s not just what you eat—it’s also what you don’t eat. The following nutritional tips will help boost your brainpower and reduce your risk of dementia:
+
+Get your omega-3s. More and more evidence indicates that omega-3 fatty acids are particularly beneficial for brain health. Fish is a particularly rich source of omega-3, especially cold water “fatty fish” such as salmon, tuna, halibut, trout, mackerel, sardines, and herring. In addition to boosting brainpower, eating fish may also lower your risk of developing Alzheimer’s disease. If you’re not a fan of seafood, consider non-fish sources of omega-3s such as walnuts, ground flaxseed, flaxseed oil, winter squash, kidney and pinto beans, spinach, broccoli, pumpkin seeds, and soybeans.
+Limit calories and saturated fat. Research shows that diets high in saturated fat (from sources such as red meat, whole milk, butter, cheese, cream, and ice cream) increase your risk of dementia and impair concentration and memory. Eating too many calories in later life can also increase your risk of cognitive impairment. Talk to your doctor or dietician about developing a healthy eating plan.
+Eat more fruit and vegetables. Produce is packed with antioxidants, substances that protect your brain cells from damage. Colorful fruits and vegetables are particularly good antioxidant "superfood" sources. Try leafy green vegetables such as spinach, kale, broccoli, romaine lettuce, chard, and arugula, and fruit such as bananas, apricots, mangoes, cantaloupe, and watermelon.
+Drink green tea. Green tea contains polyphenols, powerful antioxidants that protect against free radicals that can damage brain cells. Among many other benefits, regular consumption of green tea may enhance memory and mental alertness and slow brain aging.
+Drink wine (or grape juice) in moderation. Keeping your alcohol consumption in check is key, since alcohol kills brain cells. But in moderation (around 1 glass a day for women; 2 for men), alcohol may actually improve memory and cognition. Red wine appears to be the best option, as it is rich in resveratrol, a flavonoid that boosts blood flow in the brain and reduces the risk of Alzheimer’s disease. Other resveratrol-packed options include grape juice, cranberry juice, fresh grapes and berries, and peanuts.
+For mental energy, choose complex carbohydrates
+Just as a racecar needs gas, your brain needs fuel to perform at its best. When you need to be at the top of your mental game, carbohydrates can keep you going. But the type of carbs you choose makes all the difference. Carbohydrates fuel your brain, but simple carbs (sugar, white bread, refined grains) give a quick boost followed by an equally rapid crash. There is also evidence to suggest that diets high in simple carbs can greatly increase the risk for cognitive impairment in older adults. For healthy energy that lasts, choose complex carbohydrates such as whole-wheat bread, brown rice, oatmeal, high-fiber cereal, lentils, and whole beans. Avoid processed foods and limit starches (potato, pasta, rice) to no more than one quarter of your plate.
+
+Improving memory tip 5: Give your brain a workout
+
+By the time you’ve reached adulthood, your brain has developed millions of neural pathways that help you process and recall information quickly, solve familiar problems, and execute familiar tasks with a minimum of mental effort. But if you always stick to these well-worn paths, you aren’t giving your brain the stimulation it needs to keep growing and developing. You have to shake things up from time to time! Try taking a new route home from work or the grocery store, visiting new places at the weekend, or reading different kinds of books.
+
+Memory, like muscular strength, requires you to “use it or lose it.” The more you work out your brain, the better you’ll be able to process and remember information. The best brain exercises break your routine and challenge you to use and develop new brain pathways. Activities that require using your hands are a great way to exercise your brain. Playing a musical instrument, juggling, enjoying a game of ping pong (table tennis), making pottery, knitting, or needlework are activities that exercise the brain by challenging hand-eye coordination, spatial-temporal reasoning, and creativity.
+
+The brain exercise you choose can be virtually anything, so long as it meets the following three criteria:
+
+It’s new. No matter how intellectually demanding the activity, if it’s something you’re already good at, it’s not a good brain exercise. The activity needs to be something that’s unfamiliar and out of your comfort zone.
+It’s challenging. Anything that takes some mental effort and expands your knowledge will work. Examples include learning a new language, instrument, or sport, or tackling a challenging crossword or Sudoku puzzle.
+It’s fun. Physical and emotional enjoyment is important in the brain’s learning process. The more interested and engaged you are in the activity, the more likely you’ll be to continue doing it and the greater the benefits you’ll experience. The activity should be challenging, yes, it should also be something that is fun and enjoyable to you. Make an activity more pleasurable by appealing to your senses—playing music while you do it, or rewarding yourself afterwards with a favorite treat, for example.
+Use mnemonic devices to make memorization easier
+
+Mnemonics (the initial “m” is silent) are clues of any kind that help us remember something, usually by helping us associate the information we want to remember with a visual image, a sentence, or a word.
+
+Mnemonic device	Example
+Visual image – Associate a visual image with a word or name to help you remember them better. Positive, pleasant images that are vivid, colorful, and three-dimensional will be easier to remember.
+To remember the name Rosa Parks and what she’s known for, picture a woman sitting on a park bench surrounded by roses, waiting as her bus pulls up.
+Acrostic (or sentence) - Make up a sentence in which the first letter of each word is part of or represents the initial of what you want to remember.
+The sentence “Every good boy does fine” to memorize the lines of the treble clef, representing the notes E, G, B, D, and F.
+Acronym – An acronym is a word that is made up by taking the first letters of all the key words or ideas you need to remember and creating a new word out of them.
+The word “HOMES” to remember the names of the Great Lakes: Huron, Ontario, Michigan, Erie, and Superior.
+Rhymes and alliteration - Rhymes, alliteration (a repeating sound or syllable), and even jokes are a memorable way to remember more mundane facts and figures.
+The rhyme “Thirty days hath September, April, June, and November” to remember the months of the year with only 30 days in them.
+Chunking – Chunking breaks a long list of numbers or other types of information into smaller, more manageable chunks.
+Remembering a 10-digit phone number by breaking it down into three sets of numbers: 555-867-5309 (as opposed to5558675309).
+Method of loci – Imagine placing the items you want to remember along a route you know well or in specific locations in a familiar room or building.
+For a shopping list, imagine bananas in the entryway to your home, a puddle of milk in the middle of the sofa, eggs going up the stairs, and bread on your bed.
+Tips for enhancing memory and learning skills
+
+Pay attention. You can’t remember something if you never learned it, and you can’t learn something—that is, encode it into your brain—if you don’t pay enough attention to it. It takes about eight seconds of intense focus to process a piece of information into your memory. If you’re easily distracted, pick a quiet place where you won’t be interrupted.
+Involve as many senses as possible. Try to relate information to colors, textures, smells, and tastes. The physical act of rewriting information can help imprint it onto your brain. Even if you’re a visual learner, read out loud what you want to remember. If you can recite it rhythmically, even better.
+Relate information to what you already know. Connect new data to information you already remember, whether it’s new material that builds on previous knowledge, or something as simple as an address of someone who lives on a street where you already know someone.
+For more complex material, focus on understanding basic ideas rather than memorizing isolated details. Practice explaining the ideas to someone else in your own words.
+Rehearse information you’ve already learned. Review what you’ve learned the same day you learn it, and at intervals thereafter. This “spaced rehearsal” is more effective than cramming, especially for retaining what you’ve learned.
+5 Simple Tricks to Sharpen Thinking and Memory Skills
+
+Using these memory-enhancing techniques can help improve your ability to learn new information and retain it over time.
+
+1. Repeat
+
+One of the golden rules of learning and memory is repeat, repeat, repeat. The brain also responds to novelty so repeating something in a different way or at a different time will make the most of the novelty effect and allow you to build stronger memories. Examples of using repletion include:
+
+Taking notes.
+Repeating a name after you hear it for the first time.
+Repeating or paraphrasing what someone says to you.
+2. Organize
+
+A day planner or smart phone calendar can help you keep track of appointments and activities and can also serve as a journal in which you write anything that you would like to remember. Writing down and organizing information reinforces learning.
+
+Try jotting down conversations, thoughts, experiences.
+Review current and previous day’s entries at breakfast and dinner.
+If you use a planner and not a smart phone, keep it in the same spot at home and take it with you whenever you leave.
+3. Visualize
+
+Learning faces and names is a particularly hard task for most people. In addition to repeating a person’s name, you can also associate the name with an image. Visualization strengthens the association you are making between the face and the name. For example:
+
+Link the name Sandy with the image of a beach, and imagine Sandy on the beach.
+4. Cue
+
+When you are having difficulty recalling a particular word or fact, you can cue yourself by giving related details or “talking around” the word, name, or fact. Other practical ways to cue include:
+
+Using alarms or a kitchen timer to remind you of tasks or appointments.
+Placing an object associated with the task you must do in a prominent place at home. For example, if you want to order tickets to a play, leave a newspaper ad for the play near your telephone or computer.
+5. Group
+
+When you’re trying to remember a long list of items, it can help to group the items in sets of three to five, just as you would to remember a phone number. This strategy capitalizes on organization and building associations, and helps to extend the capacity of our short-term memory by chunking information together instead of trying to remember each piece of information independently. For example:
+
+If you have a list of 15 things on your grocery list, you can group the items by category, such as dairy, produce, canned goods, and frozen foods.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="352" y="126"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background.png" width="320" height="460"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

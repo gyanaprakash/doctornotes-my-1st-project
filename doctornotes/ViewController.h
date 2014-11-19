@@ -2,7 +2,7 @@
 //  ViewController.h
 //  doctornotes
 //
-//  Created by Mac on 19/12/13.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2013 nacreservices. All rights reserved.
 //
 
@@ -10,18 +10,13 @@
 #import "AddPatientViewController.h"
 
 @interface ViewController : UIViewController<UINavigationBarDelegate,UINavigationControllerDelegate>
-{
-    UIButton *addPateintButtn;
-    UIButton *pateintDetail;
-    UIButton *appointment;
-    UIButton *more;
-    UIButton *aboutUs; 
-}
-@property(nonatomic,retain)UIButton *addPateintButtn;
-@property(nonatomic,retain)UIButton *pateintDetail;
-@property(nonatomic,retain)UIButton*appointment;
-@property(nonatomic,retain)UIButton *more;
-@property(nonatomic,retain)UIButton *aboutUs;
 
--(void)buttonClicked:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *AddPatientbutton;
+@property (retain, nonatomic) IBOutlet UIButton *PateintDetail;
+@property (retain, nonatomic) IBOutlet UIButton *Appointment;
+@property (retain, nonatomic) IBOutlet UIButton *More;
+@property (retain, nonatomic) IBOutlet UIButton *AboutUs;
+
+- (IBAction)ButtonClicked:(UIButton *)sender;
+
 @end

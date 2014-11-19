@@ -2,7 +2,7 @@
 //  UpdateViewController.h
 //  doctornotes
 //
-//  Created by Balu on 14/01/14.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2014 nacreservices. All rights reserved.
 //
 
@@ -71,5 +71,6 @@ UITextFieldDelegate,UITextViewDelegate,UIActionSheetDelegate>
 @property(nonatomic)BOOL drugsFieldValid;
 -(void)onBackTouched:(id)sender;
 -(void)onUpdateTouched:(id)sender;
+- (IBAction)Tapped:(UITapGestureRecognizer *)sender;
 -(void)onEditTouched:(id)sender;
 @end

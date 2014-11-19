@@ -2,52 +2,41 @@
 //  AddPatientViewController.m
 //  doctornotes
 //
-//  Created by Mac on 19/12/13.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2013 nacreservices. All rights reserved.
 //
 
 #import "AddPatientViewController.h"
+#import "EmiModal.h"
 #import "UIViewHelper.h"
 #import "NewPatientRecord.h"
 #import "ValidationHelper.h"
 #import "AppDelegate.h"
+//***********************************************************************************************
 
-@interface AddPatientViewController ()
-
+@interface AddPatientViewController ()<NSFileManagerDelegate>
+{
+    NSString *name;
+}
 @end
 
 @implementation AddPatientViewController
-@synthesize fnameTextfeild;
-@synthesize lnameTextfeild;
-@synthesize emailTextfeild;
-@synthesize ageTextfeild;
-@synthesize PhoneFieldValid;
-@synthesize phoneTextfeild;
-@synthesize genderTextfield;
-@synthesize symptomsTextview;
-@synthesize diseasesTextview;
-@synthesize drugsTextView;
-@synthesize nextDate;
-@synthesize insertTable;
-@synthesize NextDateFieldValid;
-@synthesize ageFieldValid;
-@synthesize FirstnameFieldValid;
-@synthesize delegate;
-@synthesize emailFieldValid;
-@synthesize symptomsFeildValid;
-@synthesize form,isValid,formJustLoaded,formLabels;
-@synthesize doneButton,actionSheet,picker;
 
+//***********************************************************************************************
 
+@synthesize gender,emailTextfeild,genderfld,ageTextfeild,phoneTextfeild,symptomsTextview,diseasesTextview,drugsTextView,nextDate,delegate,form,isValid,formJustLoaded,formLabels,Scroll,lnameTextfeild,lastname,fnameTextfeild;
+
+@synthesize firstnamelbl,emailflbl,phonelbl,agelbl,genderlbl,symtomslbl,diseas,druglbl;
+
+//***********************************************************************************************
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self.navigationItem setTitle:@"New Patient"];
         self.form=[[[NewPatientRecord alloc]init]autorelease];
-        //[self setForm:[[NewPatientRecord alloc] init]];
+
         [self.form setFirstNameValue:@""];
         [self.form setLastNameValue:@""];
         [self.form setEmailValue:@""];
@@ -55,34 +44,35 @@
         [self.form setGenderValue:@""];
         [self.form setPhoneValue:@""];
         [self.form setSymptomsValue:@""];
-         [self.form setDiseasesValue:@""];
-         [self.form setDrugsValue:@""];
-         [self.form setNextDate:@""];
+        [self.form setDiseasesValue:@""];
+        [self.form setDrugsValue:@""];
+        [self.form setNextDate:@""];
         [self.form setCurrentDate:@""];
         [self setFormLabels:[NSMutableDictionary dictionary]];
         [self setFormJustLoaded:NO];
         [self setIsValid:NO];
-        [self setFirstnameFieldValid:NO];
-        [self setLnameFieldValid:NO];
-        [self setEmailFieldValid:NO];
-        [self setAgeFieldValid:NO];
-        [self setPhoneFieldValid:NO];
-        [self setGenderTextfield:NO];
-        [self setNextDateFieldValid:NO];
-        [self setSymptomsFeildValid:NO];
-        [self setDrugsFieldValid:NO];
-        [self setDiseasesFieldValid:NO];
-        
     }
     return self;
-    
 }
+
+//***********************************************************************************************
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [self.savebutton setUserInteractionEnabled:NO];
+
+    [nextDate setDelegate:self];
+    [nextDate setBackgroundColor:[UIColor clearColor]];
+    NSDateFormatter *dfm = [[NSDateFormatter alloc]init];
+    [dfm setDateFormat:@"dd/MM/yyyy"];
+    nextDate.text=[dfm stringFromDate:[NSDate date]];
+
+    [gender.layer setCornerRadius:7.0];
+    [gender setClipsToBounds:YES];
+
 	// Do any additional setup after loading the view.
-       
+    [Scroll setContentSize:CGSizeMake(320, 850)];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -91,118 +81,91 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldValueChanged:) name:UITextFieldTextDidChangeNotification object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textViewValueChanged:) name:UITextViewTextDidChangeNotification object:nil];
-
-
-    
-    UIImageView*backview=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 460)];
-    [backview setImage:[UIImage imageNamed:@""]];
-    [self.view addSubview:backview];
-    
      UIView *tf=nil;
     tf = [UIViewHelper createTextFeild:@"" placeholder:@"First Name" withEditing:YES];
-    tf.frame = CGRectMake(130, 5, 180, 35);
     [self setFnameTextfeild:(UITextField*)tf];
-    [self.fnameTextfeild setDelegate:self];
-   
+    [fnameTextfeild setDelegate:self];
+
     [self.fnameTextfeild setBackgroundColor:[UIColor clearColor]];
 
     tf = [UIViewHelper createTextFeild:@"" placeholder:@"Last Name" withEditing:YES];
-    tf.frame = CGRectMake(130, 5, 180, 35);
     [self setLnameTextfeild:(UITextField*)tf];
-    [self.lnameTextfeild setDelegate:self];
-    [self.lnameTextfeild setBackgroundColor:[UIColor clearColor]];
-    
+    [lnameTextfeild setDelegate:self];
+ 
     tf = [UIViewHelper createTextFeild:@"" placeholder:@"Email" withEditing:YES];
-    tf.frame = CGRectMake(130, 5, 180, 35);
     [self setEmailTextfeild:(UITextField*)tf];
-    [self.emailTextfeild setDelegate:self];
-    [self.emailTextfeild setBackgroundColor:[UIColor clearColor]];
-    
-    
+    [emailTextfeild setDelegate:self];
+ 
     tf = [UIViewHelper createTextFeild:@"" placeholder:@"Age" withEditing:YES];
-    tf.frame = CGRectMake(130, 5, 180, 35);
     [self setAgeTextfeild:(UITextField*)tf];
-    [self.ageTextfeild setDelegate:self];
-    [self.ageTextfeild setBackgroundColor:[UIColor clearColor]];
+    [ageTextfeild setDelegate:self];
     
     gender =[[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"Male", @"Female", nil]];
-    gender.frame = CGRectMake(120, 2, 135, 35);
     gender.selectedSegmentIndex=0;
-    
-    
+    [gender setUserInteractionEnabled:YES];
+
     tf = [UIViewHelper createTextFeild:@"" placeholder:@"Phone" withEditing:YES];
-    tf.frame = CGRectMake(130, 5, 180, 35);
     [self setPhoneTextfeild:(UITextField*)tf];
     [self.phoneTextfeild setDelegate:self];
-    [self.phoneTextfeild setBackgroundColor:[UIColor clearColor]];
     
-    tf =[UIViewHelper makeTextView:@"" lines:5 WithEditing:YES];
-    tf.frame = CGRectMake(130, 5, 180, 50);
+    tf =[UIViewHelper makeTextView:@"" lines:15 WithEditing:YES];
     [self setSymptomsTextview:(UITextView *)tf];
     [self.symptomsTextview setDelegate:self];
     
-    tf =[UIViewHelper makeTextView:@"" lines:5 WithEditing:YES];
-    tf.frame = CGRectMake(130, 5, 180, 50);
+    tf =[UIViewHelper makeTextView:@"" lines:15 WithEditing:YES];
     [self setDiseasesTextview:(UITextView *)tf];
     [self.diseasesTextview setDelegate:self];
     
-    tf =[UIViewHelper makeTextView:@"" lines:5 WithEditing:YES];
-    tf.frame = CGRectMake(130, 5, 180, 50);
+    tf =[UIViewHelper makeTextView:@"" lines:15 WithEditing:YES];
     [self setDrugsTextView:(UITextView*)tf];
     [self.drugsTextView setDelegate:self];
     
     tf = [UIViewHelper createTextFeild:@"" placeholder:@"Next Visit " withEditing:YES];
-    tf.frame = CGRectMake(130, 5, 180, 35);
     [self setNextDate:(UITextField*)tf];
-    [self.nextDate setDelegate:self];
-    [self.nextDate setBackgroundColor:[UIColor clearColor]];
+    [nextDate setDelegate:self];
     
-    insertTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 415) style:UITableViewStyleGrouped ];
-    
-    [insertTable setDelegate:self];
-    [insertTable setDataSource:self];
-    [self.view addSubview:insertTable];
-    [insertTable setAllowsSelection:NO];
-    
-    
+    [super viewDidLoad];
 }
+
+//***********************************************************************************************
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
-    
-    [self.navigationController.navigationBar setTintColor:[UIColor clearColor]];
-    
-    UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(onSaveTouched:)];
-    
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancle" style:UIBarButtonSystemItemCancel target:self action:@selector(onBackTouched:)];
-    
-    
-    [self.navigationItem setLeftBarButtonItem:cancelButton animated:NO];
-    [self.navigationItem setRightBarButtonItem:okButton animated:NO];
-    [self setDoneButton:okButton];
-    [self.doneButton setEnabled:FALSE];
-
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
-#pragma -Mark Handling Dialog cancel and done actions
+#pragma -Mark ButtonAction Handling
+//***********************************************************************************************
 
--(void)onBackTouched:(id)sender
+- (IBAction)BackButtonClicked:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    POP_TO_VIEWCONTROLLER_ANIMATED;
 }
 
--(void)onSaveTouched:(id)sender
+//***********************************************************************************************
+
+- (IBAction)datepicker:(UIButton *)sender
 {
+    UIDatePicker *date=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 400, 320, 100)];
+    [date setBackgroundColor:[UIColor greenColor]];
+    date.datePickerMode=UIDatePickerModeDate;
+    [self.view addSubview:date];
+}
+
+- (IBAction)SaveButtonClick:(UIButton *)sender
+{
+    NSString *msg = self.fnameTextfeild.text;
+    NSLog(@"GYANNA = %@",msg);
+    
     AppDelegate*appobj=[[UIApplication sharedApplication]delegate];
     NSManagedObjectContext *context = [appobj managedObjectContext];
     NSManagedObject *newrecord = [NSEntityDescription insertNewObjectForEntityForName:@"PATIENT" inManagedObjectContext:context];
-    [newrecord setValue:self.form.ageValue forKey:@"age"];
-    [newrecord setValue:[NSDate date] forKey:@"currentdate"];
-    [newrecord setValue:self.form.diseasesValue forKey:@"diseases"];
-    [newrecord setValue:self.form.drugsValue forKey:@"drugs"];
-    [newrecord setValue:self.form.emailValue forKey:@"email"];
     [newrecord setValue:self.form.firstNameValue forKey:@"firstname"];
+    [newrecord setValue:self.form.lastNameValue forKey:@"lastname"];
+    [newrecord setValue:self.form.emailValue forKey:@"email"];
+    [newrecord setValue:self.form.ageValue forKey:@"age"];
+    [newrecord setValue:self.form.phoneValue forKey:@"phone"];
     
     id gend;
     if (gender.selectedSegmentIndex == 0)
@@ -214,18 +177,19 @@
     }
     [newrecord setValue:gend forKey:@"gender"];
     
-    [newrecord setValue:self.form.lastNameValue forKey:@"lastname"];
-    
+    [newrecord setValue:self.form.symptomsValue forKey:@"symptoms"];
+    [newrecord setValue:self.form.diseasesValue forKey:@"diseases"];
+    [newrecord setValue:self.form.drugsValue forKey:@"drugs"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM/yyyy"];
-    NSString*datestring=[formatter stringFromDate:[self.picker date]];
-    [newrecord setValue:datestring forKey:@"nextdate"];
     
-    [newrecord setValue:self.form.phoneValue forKey:@"phone"];
-    [newrecord setValue:self.form.symptomsValue forKey:@"symptoms"];
-    selectedDate = [NSDate date];
+    //NSString*datestring=[formatter stringFromDate:[self.picker date]];
+    //selectedDate = [NSDate date];
     [newrecord  setValue:selectedDate forKey:@"currentdate"];
     
+    //[newrecord setValue:datestring forKey:@"nextdate"];
+    [newrecord setValue:[NSDate date] forKey:@"currentdate"];
+
     NSError *error = nil;
     // Save the object to persistent store
     if (![context save:&error]) {
@@ -233,12 +197,12 @@
     }
     else
     {
-         NSManagedObject *visitedrecord = [NSEntityDescription insertNewObjectForEntityForName:@"VISITED" inManagedObjectContext:context];
+        NSManagedObject *visitedrecord = [NSEntityDescription insertNewObjectForEntityForName:@"VISITED" inManagedObjectContext:context];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"dd/MM/yyyy"];
         NSString*datestring=[formatter stringFromDate:[NSDate date]];
         [visitedrecord setValue:datestring forKey:@"vdate"];
-         NSString *moID= [[[newrecord objectID]URIRepresentation]absoluteString];
+        NSString *moID= [[[newrecord objectID]URIRepresentation]absoluteString];
         [visitedrecord setValue:moID forKey:@"pid"];
         NSError *error = nil;
         // Save the object to persistent store
@@ -247,269 +211,150 @@
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         }
     }
-    [self.navigationController popViewControllerAnimated:YES];
-    
+    ALERT_VIEW(@"DATA SAVED FOR", msg);
 }
+
 #pragma Keyboard Notication Handling
+//***********************************************************************************************
 
 - (void)keyboardWasShown:(NSNotification *)notification
 {
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, 220.0, 0.0);
-    self.insertTable.contentInset = contentInsets;
-    self.insertTable.scrollIndicatorInsets = contentInsets;
+   self.Scroll.contentInset = contentInsets;
+    self.Scroll.scrollIndicatorInsets = contentInsets;
     CGRect aRect = self.view.frame;
     aRect.size.height -= keyboardSize.height;
     
 }
-- (void) keyboardWillHide:(NSNotification *)notification {
+//***********************************************************************************************
+
+- (void) keyboardWillHide:(NSNotification *)notification
+{
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.insertTable.contentInset = contentInsets;
-    self.insertTable.scrollIndicatorInsets = contentInsets;
+    self.Scroll.contentInset = contentInsets;
+    self.Scroll.scrollIndicatorInsets = contentInsets;
 }
 
-#pragma -mark UITableViewDelegateMethods
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 3;
-}
+#pragma -mark UITextField Delegate
+//***********************************************************************************************
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-  
-    if (section==0)
-      return 6;
-    else if (section==1)
-        return 3;
-    else
-        return 1;
-}
-
--(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    //header title
-    if (section == 0)
-        return @"Personal Details";
-    
-    else if (section == 1)
-        return @"About Health";
-    else
-        return @"Next Appointment";
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat height = 40.0f;
-    if(indexPath.section==1)
-    {
-        height=60.0f;
-    }
-    return height;
-
-}
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *cellIdentifier=@"Cell";
-    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:nil];
-    if (cell==NULL)
-    {
-        cell =[[ UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    if(indexPath.section==0)
-    {
-        switch (indexPath.row)
-        {
-            case 0:
-            {
-                [cell.textLabel setText:@"First Name"];
-                [self.formLabels setObject:cell.textLabel forKey:@"First Name"];
-                [cell.contentView addSubview:self.fnameTextfeild];
-            }break;
-            case 1:
-            {
-                  [cell.textLabel setText:@"LastName"];
-                  [self.formLabels setObject:cell.textLabel forKey:@"Last Name"];
-                  [cell.contentView addSubview:self.lnameTextfeild];
-            } break;
-                case 2:
-                {
-                    [cell.textLabel setText:@"Email"];
-                    [self.formLabels setObject:cell.textLabel forKey:@"Email"];
-                    [cell.contentView addSubview:self.emailTextfeild];
-
-                } break;
-                case 3:
-                {
-                    [cell.textLabel setText:@"Age"];
-                    [self.formLabels setObject:cell.textLabel forKey:@"Age"];
-                [cell.contentView addSubview:self.ageTextfeild];
-
-                } break;
-               case 4:
-              {
-                [cell.textLabel setText:@"Phone"];
-                [self.formLabels setObject:cell.textLabel forKey:@"Phone"];
-                [cell.contentView addSubview:self.phoneTextfeild];
-              } break;
-                case 5:
-                {
-                    [cell.textLabel setText:@"Gender"];
-                    [self.formLabels setObject:cell.textLabel forKey:@"Gender"];
-                    [cell.contentView addSubview:gender];
-                    
-                } break;
-                
-            }
-        }
-    else if(indexPath.section==1)
-    {
-        switch (indexPath.row)
-        {
-            case 0:{
-                    [cell.textLabel setText:@"Symptoms"];
-                    [self.formLabels setObject:cell.textLabel forKey:@"Symptoms"];
-                    [cell.contentView addSubview:self.symptomsTextview];
-                      
-                   }break;
-            case 1:{
-                    [cell.textLabel setText:@"Diseases"];
-                    [self.formLabels setObject:cell.textLabel forKey:@"Diseases"];
-                    [cell.contentView addSubview:self.diseasesTextview];
-                
-               } break;
-            case 2:
-                 {
-                   [cell.textLabel setText:@"Drugs"];
-                   [self.formLabels setObject:cell.textLabel forKey:@"Drugs"];
-                [cell.contentView addSubview:self.drugsTextView];
-            }  break;
-        
-        }
-    }
-    else if(indexPath.section==2)
-    {
-        switch (indexPath.row)
-        {
-            case 0:
-            {
-    
-                [cell.textLabel setText:@"Date"];
-                [self.formLabels setObject:cell.textLabel forKey:@"Date"];
-                [cell.contentView addSubview:self.nextDate];
-               }break;
-                  
-            }
-    }
-    return cell;
-}
-
-#pragma -mark UITextFieldMethods
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return TRUE;
 }
--(void)textFieldDidBeginEditing:(UITextField *)textField;
+//***********************************************************************************************
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    
     if(self.formJustLoaded==NO)
     {
+        /*
+        //custome alert view...
+//        for (id object in [viewAlert subviews]) {
+//            
+//            if ([object isKindOfClass:[UIView class]]) {
+//                
+//                UIView *vw1 = (UIView *) object;
+//                [vw1.layer setCornerRadius:4.0f];
+//                [vw1 setClipsToBounds:YES];
+//            }
+//        }
+//        
+//        [viewAlert setFrame:self.view.frame];
+//        [self.view addSubview:viewAlert];
+
+        */
         //  First Name Field
-        if(textField==self.fnameTextfeild)
+
+        if(textField.tag==10)
         {
-                       
-            UILabel *label = (UILabel*)[self.formLabels objectForKey:@"First Name"];
-            [label setTextColor:[UIColor blackColor]];
+            fnameTextfeild=[self.formLabels objectForKey:@"First Name"];
         }
-       
         //Last Name Field
-        if(textField==self.lnameTextfeild)
+        else if(textField.tag==20)
         {
-            UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Last Name"];
-            [label setTextColor:[UIColor blackColor]];
+            lnameTextfeild=[self.formLabels objectForKey:@"Last Name"];
         }
         //  Email Field
-        if(textField==self.emailTextfeild)
+      else if(textField.tag==30)
         {
-           
-            UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Email"];
-            [label setTextColor:[UIColor blackColor]];
+            emailTextfeild=[self.formLabels objectForKey:@"Email"];
         }
         //Age Field
-        if(textField==self.ageTextfeild)
+      else if(textField.tag==40)
         {
-            UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Age"];
-            [label setTextColor:[UIColor blackColor]];
+            ageTextfeild=[self.formLabels objectForKey:@"Age"];
         }
-        if(textField==self.phoneTextfeild)
+      else if(textField.tag==50)
         {
-            UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Phone"];
-            [label setTextColor:[UIColor blackColor]];
+            phoneTextfeild=[self.formLabels objectForKey:@"Phone"];
         }
         // next Date
-        if(textField==self.nextDate)
+        else if(textField.tag==60)
         {
-            [textField resignFirstResponder];
             
-            [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 25.0)];
-            
-            actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"Done" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-            
-            actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
-            
-            [actionSheet setBackgroundColor:[UIColor grayColor]];
-            [actionSheet setAlpha:1];
-            [actionSheet setDelegate:self];
-            picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(30 ,0, 120, 220)];
-            picker.datePickerMode=UIDatePickerModeDate;
-            
-            CGRect frame = self.picker.frame;
-            frame.size.width -= 50;
-            frame.size.height-=100;
-            [picker setFrame: frame];
-            
-            
-            [picker addTarget:self action:@selector
-             (pickerChanged:) forControlEvents:UIControlEventValueChanged];
-            [self.nextDate setInputView:picker];
-            
-            [actionSheet addSubview:picker];
-            [self.view addSubview:actionSheet];
-            [actionSheet showInView:self.view];
-            
-            CGRect menuRect = actionSheet.frame;
-            CGFloat orgHeight = menuRect.size.height;
-            menuRect.origin.y -= 160;
-            //height of picker
-            menuRect.size.height = orgHeight+214;
-            actionSheet.frame = menuRect;
-            
-            CGRect pickerRect = picker.frame;
-            pickerRect.origin.y = orgHeight;
-            picker.frame = pickerRect;
+
+            //[textField resignFirstResponder];
+//                    
+//            actionSheet=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Done" destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+//            
+//            actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
+//            
+//            [actionSheet setBackgroundColor:[UIColor grayColor]];
+//            [actionSheet setAlpha:1];
+//            [actionSheet setDelegate:self];
+//            
+//            picker=[[UIDatePicker alloc]initWithFrame:CGRectMake(30 ,0, 120, 220)];
+//            picker.datePickerMode=UIDatePickerModeDate;
+//            
+//            CGRect frame = self.picker.frame;
+//            frame.size.width = 50;
+//            frame.size.height = 100;
+//            [picker setFrame: frame];
+//
+//            [picker addTarget:self action:@selector
+//             (pickerChanged:) forControlEvents:UIControlEventValueChanged];
+//            [self.nextDate setInputView:picker];
+//            
+//            [actionSheet addSubview:picker];
+//            [self.view addSubview:actionSheet];
+//            [actionSheet showInView:self.view];
+//            
+//            CGRect menuRect = actionSheet.frame;
+//            CGFloat orgHeight = menuRect.size.height;
+//            menuRect.origin.y -= 160;
+//            //height of picker
+//            menuRect.size.height = orgHeight+214;
+//            actionSheet.frame = menuRect;
+//            
+//            CGRect pickerRect = picker.frame;
+//            pickerRect.origin.y = orgHeight;
+//            picker.frame = pickerRect;
         }
     }
 }
-    
+//***********************************************************************************************
+
 - (void)pickerChanged:(id)sender
 {
     NSLog(@"value: %@",[sender date]);
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
-    self.nextDate.text = [dateFormatter stringFromDate:[self.picker date]];
- //   NSLog(@"Date %@",self.nextDate.text);
-    
+   // self.nextDate.text = [dateFormatter stringFromDate:[self.picker date]];
 }
+//***********************************************************************************************
 
-
--(void)textFieldDidEndEditing:(UITextField *)textField;
+-(void)textFieldDidEndEditing:(UITextField *)textField
 {
+    name = fnameTextfeild.text;
     NSNotification *notification = [NSNotification notificationWithName:@"Custom" object:textField];
     [self textFieldValueChanged:notification];
 }
+//***********************************************************************************************
 
-- (void)textFieldValueChanged:(NSNotification *)notification;
+- (void)textFieldValueChanged:(NSNotification *)notification
 {
     UITextField *textField = (UITextField*)notification.object;
     BOOL valid;
@@ -517,224 +362,174 @@
     {
         //  First store field values!
         {
-            if(textField==self.fnameTextfeild)
-                [self.form setFirstNameValue:textField.text];
-            
-            if(textField==self.lnameTextfeild)
-                [self.form setLastNameValue:textField.text];
-            
-            if(textField==self.emailTextfeild)
-                [self.form setEmailValue:textField.text];
-            
-            if(textField==self.emailTextfeild)
-                [self.form setEmailValue:textField.text];
-            
-            if(textField==self.ageTextfeild)
-                [self.form setAgeValue:textField.text];
-              if (textField==self.phoneTextfeild)
-                [self.form setPhoneValue:textField.text];
-            
-            if(textField==self.nextDate)
-            [self.form setNextDate:textField.text];
-            
+            switch (textField.tag) {
+                case 10:
+                    [self.form setFirstNameValue:textField.text];
+                    break;
+                case 20:
+                    [self.form setLastNameValue:textField.text];
+                    break;
+                case 30:
+                    [self.form setEmailValue:textField.text];
+                    break;
+                case 40:
+                    [self.form setAgeValue:textField.text];
+                    break;
+                case 50:
+                    [self.form setPhoneValue:textField.text];
+                    break;
+                case 60:
+                    [self.form setNextDate:textField.text];
+                    break;
+                default:
+                    break;
+            }
         }
         //   validate data 
         {
             //  First Name Field
-            if(textField==self.fnameTextfeild)
+            if(textField.tag == 10)
             {
-                UILabel *label = (UILabel*)[self.formLabels objectForKey:@"First Name"];
                 valid=[self.form isFirstNameFieldValid];
                 if(valid==NO)
                 {
-                    [self setFirstnameFieldValid:NO];
-                    [label setTextColor:[UIColor redColor]];
+                    [firstnamelbl setTextColor:[UIColor redColor]];
                 }
                 else
                 {
                 valid=[self.form isFirstNameFieldMorethen64char];
                     if(valid==NO)
                     {
-                        [self setFirstnameFieldValid:NO];
-                        [label setTextColor:[UIColor redColor]];
+                        [firstnamelbl setTextColor:[UIColor redColor]];
                     }
                     else
                     {
-                    [self setFirstnameFieldValid:YES];
-                    [label setTextColor:[UIColor blackColor]];
+                    [firstnamelbl setTextColor:[UIColor whiteColor]];
                     }
                 }
-                
             }
-            if(textField==self.nextDate)
-            {
-                UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Next Visit"];
-                valid=[self.form isNextDateFieldValid];
-                if(valid==NO)
-                {
-                    [self setNextDateFieldValid:NO];
-                    [label setTextColor:[UIColor redColor]];
-                }
-            }
+            
           //  Last Name Field
-            if(textField==self.lnameTextfeild)
+            if(textField.tag == 20)
             {
-                UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Last Name"];
                 valid=[self.form isLastNameFieldValid];
                 if(valid==NO)
                 {
-                    [self setLnameFieldValid:NO];
-                    [label setTextColor:[UIColor redColor]];
+                    [lastname setTextColor:[UIColor redColor]];
                 }
                 else
                 {
                 valid=[self.form isLastNameFieldMorethen64char];
                     if(valid==NO)
                     {
-                        [self setLnameFieldValid:NO];
-                        [label setTextColor:[UIColor redColor]];
+                        [lastname setTextColor:[UIColor redColor]];
                     }
                     else
                     {
-                     [self setLnameFieldValid:YES];
-                    [label setTextColor:[UIColor blackColor]];
+                    [lastname setTextColor:[UIColor whiteColor]];
                     }
                 }
             }
-            if (textField==self.emailTextfeild)
+            if (textField.tag == 30)
             {
-                
-                NSLog(@"valid email");
-                UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Email"];
-                
-                [self setEmailFieldValid:[self.form isEmailFieldValid]];
-                if (self.emailFieldValid==NO)
+                valid=[self.form isEmailFieldValid];
+
+                if (valid==NO)
                 {
-                    [label setTextColor:[UIColor redColor]];
+                    [emailflbl setTextColor:[UIColor redColor]];
                 }
                 else
                 {
-                    [label setTextColor:[UIColor blackColor]];
+                    [emailflbl setTextColor:[UIColor whiteColor]];
                 }
             }
-            if(textField==self.ageTextfeild)
+            if(textField.tag == 40)
             {
-                UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Age"];
                 valid=[self.form isAgeFeildValid];
                 if(valid==NO)
                 {
-                    [self setAgeFieldValid:NO];
-                    [label setTextColor:[UIColor redColor]];
+                    [agelbl setTextColor:[UIColor redColor]];
                 }
                 else
                 {
                     valid=[self.form isAgeFieldAlpha];
                     if(valid==NO)
                     {
-                        [self setAgeFieldValid:NO];
-                        [label setTextColor:[UIColor redColor]];
+                        [agelbl setTextColor:[UIColor redColor]];
                 }
                     else
                     {
                         valid=[self.form isAgeValidRange];
                         if(valid==NO)
                         {
-                        [self setAgeFieldValid:NO];
-                        [label setTextColor:[UIColor redColor]];
+                        [agelbl setTextColor:[UIColor redColor]];
                         }
                         else
                         {
-                        [self setAgeFieldValid:YES];
-                      [label setTextColor:[UIColor blackColor]];
+                      [agelbl setTextColor:[UIColor whiteColor]];
                         }
                     }
-                
                 }
             }
-            if(textField==self.phoneTextfeild)
+            if(textField.tag == 50)
             {
-                UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Phone"];
                 valid=[self.form isPhoneFieldValid];
                 if(valid==NO)
                 {
-                    [self setPhoneFieldValid:NO];
-                    [label setTextColor:[UIColor redColor]];
+                    [phonelbl setTextColor:[UIColor redColor]];
                 }
                 else
                 {
                     valid=[self.form isPhoneFieldNot10char];
                     if(valid==NO)
                     {
-                        [self setPhoneFieldValid:NO];
-                        [label setTextColor:[UIColor redColor]];
+                        [phonelbl setTextColor:[UIColor redColor]];
                     }
                     else
                     {
                         valid=[self.form isPhoneFieldAlpha];
                         if(valid==NO)
                         {
-                        [self setPhoneFieldValid:NO];
-                        [label setTextColor:[UIColor redColor]];
+                        [phonelbl setTextColor:[UIColor redColor]];
                         }
-                        
                         else
                         {
-                            [self setPhoneFieldValid:YES];
-                        [label setTextColor:[UIColor blackColor]];
+                        [phonelbl setTextColor:[UIColor whiteColor]];
                         }
                     }
                 }
             }
+            if(textField.tag == 60)
+            {
+                valid=[self.form isNextDateFieldValid];
+                if(valid==NO)
+                {
+                    [nextDate setTextColor:[UIColor redColor]];
+                }
+                else
+                {
+                    [self.nextdatelbl setTextColor:[UIColor whiteColor]];
+                }
+            }
         }
-    }
-               
-        //  Enable or Disable the 'Done' button if things are or arent valid..
-    //  Check all validation flags!
-    if(self.FirstnameFieldValid &&self.lnameFieldValid && self.emailFieldValid && self.ageFieldValid && self.PhoneFieldValid && self.symptomsFeildValid && self.diseasesFieldValid && self.drugsFieldValid)
-    {
-        [self setIsValid:YES];
-    }
-    else{
-        [self setIsValid:NO];
     }
     
-        if(self.isValid==NO)
-        {
-            //  Disable done button
-            [self.doneButton setEnabled:NO];
-        }
-        else
-        {
-            //  Enable done button
-            [self.doneButton setEnabled:YES];
-        }
-}  
-
+}
 #pragma -mark UITextViewMethod
+//***********************************************************************************************
+
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-    
-    if(self.formJustLoaded==NO)
-    {
-        //  symptoms Field
-        if(textView==self.symptomsTextview)
-        {
-        UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Sympptoms"];
-            [label setTextColor:[UIColor blackColor]];
-        }
-    }
-    if (textView==self.diseasesTextview)
-    {
-        UILabel *label = (UILabel*)[self.formLabels objectForKey:@"diseases"];
-        [label setTextColor:[UIColor blackColor]];
-     }
-    if (textView==self.drugsTextView)
-    {
-        UILabel *label = (UILabel*)[self.formLabels objectForKey:@"drugs"];
-        [label setTextColor:[UIColor blackColor]];
-    }
-
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.30f];
+    CGPoint offset = self.Scroll.contentOffset;
+    offset.y += 216;
+    [self.Scroll setContentOffset:offset];
+    [UIView commitAnimations];
 }
+
+//***********************************************************************************************
+
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"\n"])
@@ -743,106 +538,122 @@
     }
     return YES;
 }
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
-    NSNotification *notification = [NSNotification notificationWithName:@"Custom" object:textView];
-    [self textViewValueChanged:notification];
-}
+
+//***********************************************************************************************
 
 - (void)textViewValueChanged:(NSNotification *)notification;
 {
-    
     UITextView *textView = (UITextView*)notification.object;
      BOOL valid;
     if(self.formJustLoaded==NO)
     {
-        
         {
-            if(textView==self.symptomsTextview)
-                [self.form setSymptomsValue:textView.text];
-            
-            if(textView==self.diseasesTextview)
-                [self.form setDiseasesValue:textView.text];
-            
-            if(textView==self.drugsTextView)
-                [self.form setDrugsValue:textView.text];
-           }
-        
-        //   validation 
-        {
-            
-            if(textView==self.symptomsTextview)
+            switch (textView.tag)
             {
-                UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Symptoms"];
-                
+                case 1:
+                [self.form setSymptomsValue:textView.text];
+                break;
+                case 2:
+                [self.form setDiseasesValue:textView.text];
+                break;
+                case 3:
+                [self.form setDrugsValue:textView.text];
+                default:
+                break;
+            }
+    }
+        //   validation
+        {
+            if(textView.tag == 1)
+            {
                 valid=[self.form isSymptomsFieldValid];
                 if(valid==NO)
                 {
-                    [self setSymptomsFeildValid:NO];
-                    [label setTextColor:[UIColor redColor]];
+                    [symtomslbl setTextColor:[UIColor redColor]];
                 }
                 else
                 {
-                    [self setSymptomsFeildValid:YES];
-                    [label setTextColor:[UIColor blackColor]];
+                    [symtomslbl setTextColor:[UIColor whiteColor]];
                 }
          }
-            
-            if(textView==self.diseasesTextview)
+            if(textView.tag == 2)
             {
-                UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Diseases"];
-                
                 valid=[self.form isDiseasesFieldValid];
                 if(valid==NO)
                 {
-                    [self setDrugsFieldValid:NO];
-                    [label setTextColor:[UIColor redColor]];
+                    [diseas setTextColor:[UIColor redColor]];
                 }
                 else
                 {
-                    [self setDiseasesFieldValid:YES];
-                    [label setTextColor:[UIColor blackColor]];
+                    [diseas setTextColor:[UIColor whiteColor]];
                 }
             }
-
-            if(textView==self.drugsTextView)
+            if(textView.tag == 3)
             {
-                UILabel *label = (UILabel*)[self.formLabels objectForKey:@"Drugs"];
-                
                 valid=[self.form isDrugsFieldValid];
                 if(valid==NO)
                 {
-                    [self setDrugsFieldValid:NO];
-                    [label setTextColor:[UIColor redColor]];
+                    [druglbl setTextColor:[UIColor redColor]];
                 }
                 else
                 {
-                    [self setDrugsFieldValid:YES];
-                    [label setTextColor:[UIColor blackColor]];
+                    [druglbl setTextColor:[UIColor whiteColor]];
                 }
             }
         }
-        
-        //  Check all validation flags!
-        if(self.FirstnameFieldValid &&self.lnameFieldValid && self.emailFieldValid && self.ageFieldValid && self.PhoneFieldValid && self.symptomsFeildValid && self.diseasesFieldValid && self.drugsFieldValid)
-        {
-            [self setIsValid:YES];
-        }
-        else{
-            [self setIsValid:NO];
-        }
-        
-        if(self.isValid==NO)
-        {
-            //  Disable done button
-            [self.doneButton setEnabled:NO];
-        }
-        else
-        {
-            //  Enable done button
-            [self.doneButton setEnabled:YES];
-        }
+        [self.savebutton setUserInteractionEnabled:YES];
     }
+}
+//***********************************************************************************************
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.30f];
+    CGPoint offset = self.Scroll.contentOffset;
+    offset.y -= 216; // You can change this, but 200 doesn't create any problems
+    [self.Scroll setContentOffset:offset];
+    [UIView commitAnimations];
+}
+
+//***********************************************************************************************
+
+- (IBAction)keyboardresign:(UITapGestureRecognizer *)sender
+{
+    [self.view endEditing:YES];
+}
+//***********************************************************************************************
+
+- (void)dealloc
+{
+    [fnameTextfeild release];
+    [emailTextfeild release];
+    [ageTextfeild release];
+    [phoneTextfeild release];
+    [symptomsTextview release];
+    [diseasesTextview release];
+    [drugsTextView release];
+    [nextDate release];
+    [gender release];
+    [genderfld release];
+    [_savebutton release];
+    [_BackButton release];
+    [gender release];
+    [nextDate release];
+    [Scroll release];
+    [agelbl release];
+    [lastname release];
+    [emailflbl release];
+    [agelbl release];
+    [phonelbl release];
+    [genderlbl release];
+    [symtomslbl release];
+    [druglbl release];
+
+    [gender release];
+    [viewAlert release];
+    [_nextdatelbl release];
+    [super dealloc];
 }
 
 @end

@@ -2,12 +2,12 @@
 //  AppointmentUpdate.m
 //  doctornotes
 //
-//  Created by Balu on 09/01/14.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2014 nacreservices. All rights reserved.
 //
 
 #import "AppointmentUpdate.h"
-#import "AppDelegate.h"
+#import "EmiModal.h"
 #import "UIViewHelper.h"
 
 @interface AppointmentUpdate ()
@@ -15,6 +15,8 @@
 @end
 
 @implementation AppointmentUpdate
+//***********************************************************************************************
+
 @synthesize fnameTextfeild;
 @synthesize lnameTextfeild;
 @synthesize emailTextfeild;
@@ -29,6 +31,8 @@
 @synthesize DiseasesTextview;
 @synthesize drugsTextView;
 @synthesize NextDate;
+//***********************************************************************************************
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -36,7 +40,8 @@
         // Custom initialization
         self.formLabels=[[NSMutableDictionary alloc]init];
                [self setTitle:@"Update Date"];
-        
+        [self.navigationController setNavigationBarHidden:YES];
+
         UIView *tf=nil;
         tf = [UIViewHelper createTextFeild:@"" placeholder:nil withEditing:NO];
         tf.frame = CGRectMake(130, 5, 180, 35);
@@ -91,11 +96,14 @@
     }
     return self;
 }
+//***********************************************************************************************
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     lastappoinment=[selectedData valueForKey:@"nextdate"];
+    
     UIBarButtonItem *updateButton = [[UIBarButtonItem alloc]initWithTitle:@"Update" style:UIBarButtonItemStylePlain target:self action:@selector(onEditTouched:)];
     [self.navigationItem setRightBarButtonItem:updateButton animated:YES];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(onBackTouched:)];
@@ -103,10 +111,16 @@
     [self.tableView setAllowsSelection:NO];
     
 }
+//***********************************************************************************************
+
+#pragma mark buttonactions
+
 -(void)onBackTouched:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    POP_TO_VIEWCONTROLLER_ANIMATED;
 }
+//***********************************************************************************************
+
 -(void)onEditTouched:(id)sender
 {
     [self.NextDate setUserInteractionEnabled:YES];
@@ -114,6 +128,8 @@
     [self.navigationItem setRightBarButtonItem:saveButton animated:NO];
     
 }
+//***********************************************************************************************
+
 -(void)onSaveTouched:(id)sender
 {
     NSString *moID= [[[selectedData objectID]URIRepresentation]absoluteString];
@@ -134,22 +150,29 @@
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         }
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    POP_TO_VIEWCONTROLLER_ANIMATED;
 }
+//***********************************************************************************************
+
+#pragma mark didReceiveMemoryWarning
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//***********************************************************************************************
 
 #pragma mark - Table view data source
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
 }
+//***********************************************************************************************
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     if (section==0)
         return 6;
     else if (section==1)
@@ -157,18 +180,20 @@
     else
         return 1;
 }
+//***********************************************************************************************
 
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     //header title
     if (section == 0)
         return @"Personal Details";
-    
     else if (section == 1)
         return @"About Health";
     else
         return @"Next Appointment";
 }
+//***********************************************************************************************
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat height = 40.0f;
@@ -178,6 +203,8 @@
     }
     return height;
 }
+//***********************************************************************************************
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier=@"Cell";
@@ -197,14 +224,16 @@
                 [cell.contentView addSubview:self.fnameTextfeild];
                 [self.fnameTextfeild setText:[selectedData valueForKey:@"firstname"]];
                 
-            }break;
+            }
+                break;
             case 1:
             {
                 [cell.textLabel setText:@"LastName"];
                 [self.formLabels setObject:cell.textLabel forKey:@"Last Name"];
                 [cell.contentView addSubview:self.lnameTextfeild];
                 [self.lnameTextfeild setText:[selectedData valueForKey:@"lastname"]];
-            } break;
+            }
+                break;
             case 2:
             {
                 [cell.textLabel setText:@"Email"];
@@ -212,7 +241,8 @@
                 [cell.contentView addSubview:self.emailTextfeild];
                 [self.emailTextfeild setText:[selectedData valueForKey:@"email"]];
                 
-            } break;
+            }
+                break;
             case 3:
             {
                 [cell.textLabel setText:@"Age"];
@@ -220,14 +250,16 @@
                 [cell.contentView addSubview:self.ageTextfeild];
                 [self.ageTextfeild setText:[selectedData valueForKey:@"age"]];
                 
-            } break;
+            }
+                break;
             case 4:
             {
                 [cell.textLabel setText:@"Phone"];
                 [self.formLabels setObject:cell.textLabel forKey:@"Phone"];
                 [cell.contentView addSubview:self.PhoneTextfeild];
                 [self.PhoneTextfeild setText:[selectedData valueForKey:@"phone"]];
-            } break;
+            }
+                break;
             case 5:
             {
                 NSString*gender=[selectedData valueForKey:@"gender"];
@@ -235,8 +267,8 @@
                 [self.formLabels setObject:cell.textLabel forKey:@"Gender"];
                 [cell.contentView addSubview:self.genderTextfield];
                 [self.genderTextfield setText:gender];
-            } break;
-                
+            }
+                break;
         }
     }
     else if(indexPath.section==1)
@@ -251,20 +283,23 @@
                 [self.symptomsTextview setText:[selectedData valueForKey:@"symptoms"]];
                 
                 
-            }break;
+            }
+                break;
             case 1:{
                 [cell.textLabel setText:@"Diseases"];
                 [self.formLabels setObject:cell.textLabel forKey:@"Diseases"];
                 [cell.contentView addSubview:self.DiseasesTextview];
                 [self.DiseasesTextview setText:[selectedData valueForKey:@"diseases"]];
-            } break;
+            }
+                break;
             case 2:
             {
                 [cell.textLabel setText:@"Drugs"];
                 [self.formLabels setObject:cell.textLabel forKey:@"Drugs"];
                 [cell.contentView addSubview:self.drugsTextView];
                 [self.drugsTextView setText:[selectedData valueForKey:@"drugs"]];
-            }  break;
+            }
+                break;
         }
     }
     else if(indexPath.section==2)
@@ -273,25 +308,27 @@
         {
             case 0:
             {
-                
                 [cell.textLabel setText:@"Date"];
                 [self.formLabels setObject:cell.textLabel forKey:@"Date"];
                 [cell.contentView addSubview:self.NextDate];
                 [self.NextDate setText:[selectedData valueForKey:@"nextdate"]];
-                
-            }break;
-                
+            }
+                break;
         }
     }
     return cell;
 }
+//***********************************************************************************************
 
 #pragma -mark UITextFieldMethods
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return TRUE;
 }
+//***********************************************************************************************
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
    if(textField==self.NextDate)
@@ -326,17 +363,26 @@
     picker.frame = pickerRect;
   }
 }
+//***********************************************************************************************
+
+#pragma mark pickerChanged
+
 - (void)pickerChanged:(id)sender
 {
-    NSLog(@"value: %@",[sender date]);
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     self.NextDate.text = [dateFormatter stringFromDate:[self.picker date]];
 }
+//***********************************************************************************************
+
+#pragma mark actionSheet
+
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     self.NextDate.text = [dateFormatter stringFromDate:[self.picker date]];
 }
+//***********************************************************************************************
+
 @end

@@ -2,7 +2,7 @@
 //  AppointmentViewController.h
 //  doctornotes
 //
-//  Created by Mac on 19/12/13.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2013 nacreservices. All rights reserved.
 //
 
@@ -20,11 +20,13 @@
 }
 @property(nonatomic,retain)UIDatePicker *picker;
 @property(nonatomic,retain) UIActionSheet *actionSheet;
-@property(nonatomic,retain)UITextField *dateField;
-@property(nonatomic,retain)UITableView *appointmentTable;
 @property(nonatomic,retain)NSMutableArray *recordeArray2;
 @property(nonatomic,retain)NSMutableArray *fullDetailarray2;
+//@property (retain, nonatomic) IBOutlet UILabel *dateField;
+@property (retain, nonatomic) IBOutlet UITableView *appointmentTable;
+@property (retain, nonatomic) IBOutlet UITextField *dateField;
 
+- (IBAction)Backbuttobclicked:(id)sender;
 
 - (void)pickerChanged:(id)sender;
 @end

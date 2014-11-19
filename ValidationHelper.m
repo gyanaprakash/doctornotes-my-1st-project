@@ -2,7 +2,7 @@
 //  ValidationHelper.m
 //  doctornotes
 //
-//  Created by nareshit on 12/20/13.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2013 nacreservices. All rights reserved.
 //
 
@@ -34,7 +34,6 @@
 }
 +(BOOL)NSStringisEmailaddress:(NSString*)string
 {
-    
     BOOL valid;
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
@@ -44,7 +43,7 @@
 }
 +(BOOL)NSStringisNotEqlToSomeDigit:(NSString *)string
 {
-    int l=[string length];
+    NSInteger l=[string length];
     return l!=10?FALSE:TRUE;
 }
 +(BOOL)NSStringIsValidDate:(NSString*)string
@@ -80,13 +79,11 @@
             valid=FALSE;
         }
     }
-    
     return valid;
 }
 
 +(BOOL)NSDate:(NSDate*)date occursOnOrAfter:(NSDate*)matchDate;
 {
-    
     BOOL valid = FALSE;
     
     unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
@@ -104,8 +101,6 @@
         valid=TRUE;
     }
     return valid;
-    
-    
 }
 +(NSString*)genRandStringLength:(int)len
 {
@@ -116,7 +111,6 @@
     for (int i=0; i<len; i++) {
         [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random() % [letters length]]];
     }
-    
     return randomString;
 }
 

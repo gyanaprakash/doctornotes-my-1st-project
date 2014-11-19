@@ -2,7 +2,7 @@
 //  NewPatientRecord.m
 //  doctornotes
 //
-//  Created by nareshit on 12/19/13.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2013 nacreservices. All rights reserved.
 //
 
@@ -35,10 +35,7 @@
         [self setNextDate:@""];
         [self setDrugsValue:@""];
         [self setCurrentDate:@""];
-        
-
-
-
+ 
     }
     return self;
 }
@@ -60,10 +57,12 @@
 {
     return [ValidationHelper NSSTRingIsExitMaxLenght:self.lastNameValue Maxlenght:64];
 }
+
 -(BOOL)isEmailFieldValid
 {
   return [ValidationHelper NSStringisEmailaddress:self.emailValue];
 }
+
 -(BOOL)isPhoneFieldValid
 {
     return [ValidationHelper NSStringIsNotEmpty:self.phoneValue];
@@ -104,6 +103,5 @@ return [ValidationHelper NSStringIsNotNumber:self.phoneValue];
 {
     return [ValidationHelper NSStringIsNotEmpty:self.nextDate];
 }
-
 
 @end

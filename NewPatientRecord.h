@@ -2,7 +2,7 @@
 //  NewPatientRecord.h
 //  doctornotes
 //
-//  Created by nareshit on 12/19/13.
+//  Created by Gyana on 06/10/2014.
 //  Copyright (c) 2013 nacreservices. All rights reserved.
 //
 
